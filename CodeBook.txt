@@ -1,0 +1,583 @@
+#tidy_data_set is a file containing observations collected using the accelerometers from the Samsung Galaxy S smartphone.
+#file has been obtained merging training and test data sets, and grouping them by subject and activity
+#for each numeric variable available in columns, mean values by subject and activity has been calculated
+#below all the columns available in the file are listed and described
+
+#subject --> person who performed the test (identified by a code from 1 to 30)
+#activity --> activity performed by subject during the test. Below the possible values this field can assume
+##1 WALKING
+
+##2 WALKING_UPSTAIRS
+##
+3 WALKING_DOWNSTAIRS
+##
+4 SITTING
+##
+5 STANDING
+##
+6 LAYING
+
+#activity_label --> description corresponding to each activity code contained in the previous variable (label has been included in the data set, according to assignment requirements)
+
+#following variables are numeric variables. Values available in the data frame for each of the following variables are mean by subject and activity
+##tBodyAcc.mean...X -->  Mean of Body Acceleration signals in X direction
+##tBodyAcc.mean...Y --> Mean of Body Acceleration signals in Y direction
+##tBodyAcc.mean...Z --> Mean of Body Acceleration signals in Z direction
+##tBodyAcc.std...X --> Standard deviation of Body Acceleration signals in X direction
+##tBodyAcc.std...Y --> Standard deviation of Body Acceleration signals in Y direction
+##tBodyAcc.std...Z --> Standard deviation of Body Acceleration signals in Z direction
+##tBodyAcc.mad...X --> Median absolute deviation of Body Acceleration signals in X direction
+##tBodyAcc.mad...Y --> Median absolute deviation of Body Acceleration signals in Y direction
+##tBodyAcc.mad...Z --> Median absolute deviation of Body Acceleration signals in Z direction
+##tBodyAcc.max...X --> Maximum of Body Acceleration signals in X direction
+##tBodyAcc.max...Y --> Maximum of Body Acceleration signals in Y direction
+##tBodyAcc.max...Z --> Maximum of Body Acceleration signals in Z direction
+##tBodyAcc.min...X --> Minimum of Body Acceleration signals in X direction
+##tBodyAcc.min...Y --> Minimum of Body Acceleration signals in Y direction
+##tBodyAcc.min...Z --> Minimum of Body Acceleration signals in Z direction
+##tBodyAcc.sma.. --> Signal magnitude area of Body Acceleration signals 
+##tBodyAcc.energy...X --> Energy measure of Body Acceleration signals in X direction
+##tBodyAcc.energy...Y --> Energy measure of Body Acceleration signals in X direction
+##tBodyAcc.energy...Z --> Energy measure of Body Acceleration signals in X direction
+##tBodyAcc.iqr...X --> Interquartile range of Body Acceleration signals in X direction
+##tBodyAcc.iqr...Y --> Interquartile range of Body Acceleration signals in X direction
+##tBodyAcc.iqr...Z --> Interquartile range of Body Acceleration signals in X direction
+##tBodyAcc.entropy...X --> Signal entropy of Body Acceleration signals in X direction
+##tBodyAcc.entropy...Y --> Signal entropy of Body Acceleration signals in X direction
+##tBodyAcc.entropy...Z --> Signal entropy of Body Acceleration signals in X direction
+##tBodyAcc.arCoeff...X.1 --> Autorregresion coefficients of Body Acceleration signals in X.1 direction
+##tBodyAcc.arCoeff...X.2 --> Autorregresion coefficients of Body Acceleration signals in X.2 direction
+##tBodyAcc.arCoeff...X.3 --> Autorregresion coefficients of Body Acceleration signals in X.3 direction
+##tBodyAcc.arCoeff...X.4 --> Autorregresion coefficients of Body Acceleration signals in X.4 direction
+##tBodyAcc.arCoeff...Y.1 --> Autorregresion coefficients of Body Acceleration signals in Y.1 direction
+##tBodyAcc.arCoeff...Y.2 --> Autorregresion coefficients of Body Acceleration signals in Y.2 direction
+##tBodyAcc.arCoeff...Y.3 --> Autorregresion coefficients of Body Acceleration signals in Y.3 direction
+##tBodyAcc.arCoeff...Y.4 --> Autorregresion coefficients of Body Acceleration signals in Y.4 direction
+##tBodyAcc.arCoeff...Z.1 --> Autorregresion coefficients of Body Acceleration signals in Z.1 direction
+##tBodyAcc.arCoeff...Z.2 --> Autorregresion coefficients of Body Acceleration signals in Z.2 direction
+##tBodyAcc.arCoeff...Z.3 --> Autorregresion coefficients of Body Acceleration signals in Z.3 direction
+##tBodyAcc.arCoeff...Z.4 --> Autorregresion coefficients of Body Acceleration signals in Z.4 direction
+##tBodyAcc.correlation...X.Y --> X/Y Correlation coefficient of Body Acceleration signals
+##tBodyAcc.correlation...X.Z --> X/Z Correlation coefficient of Body Acceleration signals
+##tBodyAcc.correlation...Y.Z --> Y/Z Correlation coefficient of Body Acceleration signals
+##tGravityAcc.mean...X --> Mean of Gravity Acceleration  signals in X direction
+##tGravityAcc.mean...Y --> Mean of Gravity Acceleration  signals in Y direction
+##tGravityAcc.mean...Z --> Mean of Gravity Acceleration  signals in Z direction
+##tGravityAcc.std...X --> Standard deviation of Gravity Acceleration  signals in X direction
+##tGravityAcc.std...Y --> Standard deviation of Gravity Acceleration  signals in Y direction
+##tGravityAcc.std...Z --> Standard deviation of Gravity Acceleration  signals in Z direction
+##tGravityAcc.mad...X --> Median absolute deviation of Gravity Acceleration  signals in X direction
+##tGravityAcc.mad...Y --> Median absolute deviation of Gravity Acceleration  signals in Y direction
+##tGravityAcc.mad...Z --> Median absolute deviation of Gravity Acceleration  signals in Z direction
+##tGravityAcc.max...X --> Maximum of Gravity Acceleration  signals in X direction
+##tGravityAcc.max...Y --> Maximum of Gravity Acceleration  signals in Y direction
+##tGravityAcc.max...Z --> Maximum of Gravity Acceleration  signals in Z direction
+##tGravityAcc.min...X --> Minimum of Gravity Acceleration  signals in X direction
+##tGravityAcc.min...Y --> Minimum of Gravity Acceleration  signals in Y direction
+##tGravityAcc.min...Z --> Minimum of Gravity Acceleration  signals in Z direction
+##tGravityAcc.sma.. --> Signal magnitude area of Gravity Acceleration  signals 
+##tGravityAcc.energy...X --> Energy measure of Gravity Acceleration  signals in X direction
+##tGravityAcc.energy...Y --> Energy measure of Gravity Acceleration  signals in X direction
+##tGravityAcc.energy...Z --> Energy measure of Gravity Acceleration  signals in X direction
+##tGravityAcc.iqr...X --> Interquartile range of Gravity Acceleration  signals in X direction
+##tGravityAcc.iqr...Y --> Interquartile range of Gravity Acceleration  signals in X direction
+##tGravityAcc.iqr...Z --> Interquartile range of Gravity Acceleration  signals in X direction
+##tGravityAcc.entropy...X --> Signal entropy of Gravity Acceleration  signals in X direction
+##tGravityAcc.entropy...Y --> Signal entropy of Gravity Acceleration  signals in X direction
+##tGravityAcc.entropy...Z --> Signal entropy of Gravity Acceleration  signals in X direction
+##tGravityAcc.arCoeff...X.1 --> Autorregresion coefficients of Gravity Acceleration  signals in X.1 direction
+##tGravityAcc.arCoeff...X.2 --> Autorregresion coefficients of Gravity Acceleration  signals in X.2 direction
+##tGravityAcc.arCoeff...X.3 --> Autorregresion coefficients of Gravity Acceleration  signals in X.3 direction
+##tGravityAcc.arCoeff...X.4 --> Autorregresion coefficients of Gravity Acceleration  signals in X.4 direction
+##tGravityAcc.arCoeff...Y.1 --> Autorregresion coefficients of Gravity Acceleration  signals in Y.1 direction
+##tGravityAcc.arCoeff...Y.2 --> Autorregresion coefficients of Gravity Acceleration  signals in Y.2 direction
+##tGravityAcc.arCoeff...Y.3 --> Autorregresion coefficients of Gravity Acceleration  signals in Y.3 direction
+##tGravityAcc.arCoeff...Y.4 --> Autorregresion coefficients of Gravity Acceleration  signals in Y.4 direction
+##tGravityAcc.arCoeff...Z.1 --> Autorregresion coefficients of Gravity Acceleration  signals in Z.1 direction
+##tGravityAcc.arCoeff...Z.2 --> Autorregresion coefficients of Gravity Acceleration  signals in Z.2 direction
+##tGravityAcc.arCoeff...Z.3 --> Autorregresion coefficients of Gravity Acceleration  signals in Z.3 direction
+##tGravityAcc.arCoeff...Z.4 --> Autorregresion coefficients of Gravity Acceleration  signals in Z.4 direction
+##tGravityAcc.correlation...X.Y --> X/Y Correlation coefficient of Gravity Acceleration  signals
+##tGravityAcc.correlation...X.Z --> X/Z Correlation coefficient of Gravity Acceleration  signals
+##tGravityAcc.correlation...Y.Z --> Y/Z Correlation coefficient of Gravity Acceleration  signals
+##tBodyAccJerk.mean...X --> Mean of Body Acceleration Jerk signals in X direction
+##tBodyAccJerk.mean...Y --> Mean of Body Acceleration Jerk signals in Y direction
+##tBodyAccJerk.mean...Z --> Mean of Body Acceleration Jerk signals in Z direction
+##tBodyAccJerk.std...X --> Standard deviation of Body Acceleration Jerk signals in X direction
+##tBodyAccJerk.std...Y --> Standard deviation of Body Acceleration Jerk signals in Y direction
+##tBodyAccJerk.std...Z --> Standard deviation of Body Acceleration Jerk signals in Z direction
+##tBodyAccJerk.mad...X --> Median absolute deviation of Body Acceleration Jerk signals in X direction
+##tBodyAccJerk.mad...Y --> Median absolute deviation of Body Acceleration Jerk signals in Y direction
+##tBodyAccJerk.mad...Z --> Median absolute deviation of Body Acceleration Jerk signals in Z direction
+##tBodyAccJerk.max...X --> Maximum of Body Acceleration Jerk signals in X direction
+##tBodyAccJerk.max...Y --> Maximum of Body Acceleration Jerk signals in Y direction
+##tBodyAccJerk.max...Z --> Maximum of Body Acceleration Jerk signals in Z direction
+##tBodyAccJerk.min...X --> Minimum of Body Acceleration Jerk signals in X direction
+##tBodyAccJerk.min...Y --> Minimum of Body Acceleration Jerk signals in Y direction
+##tBodyAccJerk.min...Z --> Minimum of Body Acceleration Jerk signals in Z direction
+##tBodyAccJerk.sma.. --> Signal magnitude area of Body Acceleration Jerk signals 
+##tBodyAccJerk.energy...X --> Energy measure of Body Acceleration Jerk signals in X direction
+##tBodyAccJerk.energy...Y --> Energy measure of Body Acceleration Jerk signals in X direction
+##tBodyAccJerk.energy...Z --> Energy measure of Body Acceleration Jerk signals in X direction
+##tBodyAccJerk.iqr...X --> Interquartile range of Body Acceleration Jerk signals in X direction
+##tBodyAccJerk.iqr...Y --> Interquartile range of Body Acceleration Jerk signals in X direction
+##tBodyAccJerk.iqr...Z --> Interquartile range of Body Acceleration Jerk signals in X direction
+##tBodyAccJerk.entropy...X --> Signal entropy of Body Acceleration Jerk signals in X direction
+##tBodyAccJerk.entropy...Y --> Signal entropy of Body Acceleration Jerk signals in X direction
+##tBodyAccJerk.entropy...Z --> Signal entropy of Body Acceleration Jerk signals in X direction
+##tBodyAccJerk.arCoeff...X.1 --> Autorregresion coefficients of Body Acceleration Jerk signals in X.1 direction
+##tBodyAccJerk.arCoeff...X.2 --> Autorregresion coefficients of Body Acceleration Jerk signals in X.2 direction
+##tBodyAccJerk.arCoeff...X.3 --> Autorregresion coefficients of Body Acceleration Jerk signals in X.3 direction
+##tBodyAccJerk.arCoeff...X.4 --> Autorregresion coefficients of Body Acceleration Jerk signals in X.4 direction
+##tBodyAccJerk.arCoeff...Y.1 --> Autorregresion coefficients of Body Acceleration Jerk signals in Y.1 direction
+##tBodyAccJerk.arCoeff...Y.2 --> Autorregresion coefficients of Body Acceleration Jerk signals in Y.2 direction
+##tBodyAccJerk.arCoeff...Y.3 --> Autorregresion coefficients of Body Acceleration Jerk signals in Y.3 direction
+##tBodyAccJerk.arCoeff...Y.4 --> Autorregresion coefficients of Body Acceleration Jerk signals in Y.4 direction
+##tBodyAccJerk.arCoeff...Z.1 --> Autorregresion coefficients of Body Acceleration Jerk signals in Z.1 direction
+##tBodyAccJerk.arCoeff...Z.2 --> Autorregresion coefficients of Body Acceleration Jerk signals in Z.2 direction
+##tBodyAccJerk.arCoeff...Z.3 --> Autorregresion coefficients of Body Acceleration Jerk signals in Z.3 direction
+##tBodyAccJerk.arCoeff...Z.4 --> Autorregresion coefficients of Body Acceleration Jerk signals in Z.4 direction
+##tBodyAccJerk.correlation...X.Y --> X/Y Correlation coefficient of Body Acceleration Jerk signals
+##tBodyAccJerk.correlation...X.Z --> X/Z Correlation coefficient of Body Acceleration Jerk signals
+##tBodyAccJerk.correlation...Y.Z --> Y/Z Correlation coefficient of Body Acceleration Jerk signals
+##tBodyGyro.mean...X --> Mean of Body Gyro signals in X direction
+##tBodyGyro.mean...Y --> Mean of Body Gyro signals in Y direction
+##tBodyGyro.mean...Z --> Mean of Body Gyro signals in Z direction
+##tBodyGyro.std...X --> Standard deviation of Body Gyro signals in X direction
+##tBodyGyro.std...Y --> Standard deviation of Body Gyro signals in Y direction
+##tBodyGyro.std...Z --> Standard deviation of Body Gyro signals in Z direction
+##tBodyGyro.mad...X --> Median absolute deviation of Body Gyro signals in X direction
+##tBodyGyro.mad...Y --> Median absolute deviation of Body Gyro signals in Y direction
+##tBodyGyro.mad...Z --> Median absolute deviation of Body Gyro signals in Z direction
+##tBodyGyro.max...X --> Maximum of Body Gyro signals in X direction
+##tBodyGyro.max...Y --> Maximum of Body Gyro signals in Y direction
+##tBodyGyro.max...Z --> Maximum of Body Gyro signals in Z direction
+##tBodyGyro.min...X --> Minimum of Body Gyro signals in X direction
+##tBodyGyro.min...Y --> Minimum of Body Gyro signals in Y direction
+##tBodyGyro.min...Z --> Minimum of Body Gyro signals in Z direction
+##tBodyGyro.sma.. --> Signal magnitude area of Body Gyro signals 
+##tBodyGyro.energy...X --> Energy measure of Body Gyro signals in X direction
+##tBodyGyro.energy...Y --> Energy measure of Body Gyro signals in X direction
+##tBodyGyro.energy...Z --> Energy measure of Body Gyro signals in X direction
+##tBodyGyro.iqr...X --> Interquartile range of Body Gyro signals in X direction
+##tBodyGyro.iqr...Y --> Interquartile range of Body Gyro signals in X direction
+##tBodyGyro.iqr...Z --> Interquartile range of Body Gyro signals in X direction
+##tBodyGyro.entropy...X --> Signal entropy of Body Gyro signals in X direction
+##tBodyGyro.entropy...Y --> Signal entropy of Body Gyro signals in X direction
+##tBodyGyro.entropy...Z --> Signal entropy of Body Gyro signals in X direction
+##tBodyGyro.arCoeff...X.1 --> Autorregresion coefficients of Body Gyro signals in X.1 direction
+##tBodyGyro.arCoeff...X.2 --> Autorregresion coefficients of Body Gyro signals in X.2 direction
+##tBodyGyro.arCoeff...X.3 --> Autorregresion coefficients of Body Gyro signals in X.3 direction
+##tBodyGyro.arCoeff...X.4 --> Autorregresion coefficients of Body Gyro signals in X.4 direction
+##tBodyGyro.arCoeff...Y.1 --> Autorregresion coefficients of Body Gyro signals in Y.1 direction
+##tBodyGyro.arCoeff...Y.2 --> Autorregresion coefficients of Body Gyro signals in Y.2 direction
+##tBodyGyro.arCoeff...Y.3 --> Autorregresion coefficients of Body Gyro signals in Y.3 direction
+##tBodyGyro.arCoeff...Y.4 --> Autorregresion coefficients of Body Gyro signals in Y.4 direction
+##tBodyGyro.arCoeff...Z.1 --> Autorregresion coefficients of Body Gyro signals in Z.1 direction
+##tBodyGyro.arCoeff...Z.2 --> Autorregresion coefficients of Body Gyro signals in Z.2 direction
+##tBodyGyro.arCoeff...Z.3 --> Autorregresion coefficients of Body Gyro signals in Z.3 direction
+##tBodyGyro.arCoeff...Z.4 --> Autorregresion coefficients of Body Gyro signals in Z.4 direction
+##tBodyGyro.correlation...X.Y --> X/Y Correlation coefficient of Body Gyro signals
+##tBodyGyro.correlation...X.Z --> X/Z Correlation coefficient of Body Gyro signals
+##tBodyGyro.correlation...Y.Z --> Y/Z Correlation coefficient of Body Gyro signals
+##tBodyGyroJerk.mean...X --> Mean of Body Gyro Jerk signals in X direction
+##tBodyGyroJerk.mean...Y --> Mean of Body Gyro Jerk signals in Y direction
+##tBodyGyroJerk.mean...Z --> Mean of Body Gyro Jerk signals in Z direction
+##tBodyGyroJerk.std...X --> Standard deviation of Body Gyro Jerk signals in X direction
+##tBodyGyroJerk.std...Y --> Standard deviation of Body Gyro Jerk signals in Y direction
+##tBodyGyroJerk.std...Z --> Standard deviation of Body Gyro Jerk signals in Z direction
+##tBodyGyroJerk.mad...X --> Median absolute deviation of Body Gyro Jerk signals in X direction
+##tBodyGyroJerk.mad...Y --> Median absolute deviation of Body Gyro Jerk signals in Y direction
+##tBodyGyroJerk.mad...Z --> Median absolute deviation of Body Gyro Jerk signals in Z direction
+##tBodyGyroJerk.max...X --> Maximum of Body Gyro Jerk signals in X direction
+##tBodyGyroJerk.max...Y --> Maximum of Body Gyro Jerk signals in Y direction
+##tBodyGyroJerk.max...Z --> Maximum of Body Gyro Jerk signals in Z direction
+##tBodyGyroJerk.min...X --> Minimum of Body Gyro Jerk signals in X direction
+##tBodyGyroJerk.min...Y --> Minimum of Body Gyro Jerk signals in Y direction
+##tBodyGyroJerk.min...Z --> Minimum of Body Gyro Jerk signals in Z direction
+##tBodyGyroJerk.sma.. --> Signal magnitude area of Body Gyro Jerk signals 
+##tBodyGyroJerk.energy...X --> Energy measure of Body Gyro Jerk signals in X direction
+##tBodyGyroJerk.energy...Y --> Energy measure of Body Gyro Jerk signals in X direction
+##tBodyGyroJerk.energy...Z --> Energy measure of Body Gyro Jerk signals in X direction
+##tBodyGyroJerk.iqr...X --> Interquartile range of Body Gyro Jerk signals in X direction
+##tBodyGyroJerk.iqr...Y --> Interquartile range of Body Gyro Jerk signals in X direction
+##tBodyGyroJerk.iqr...Z --> Interquartile range of Body Gyro Jerk signals in X direction
+##tBodyGyroJerk.entropy...X --> Signal entropy of Body Gyro Jerk signals in X direction
+##tBodyGyroJerk.entropy...Y --> Signal entropy of Body Gyro Jerk signals in X direction
+##tBodyGyroJerk.entropy...Z --> Signal entropy of Body Gyro Jerk signals in X direction
+##tBodyGyroJerk.arCoeff...X.1 --> Autorregresion coefficients of Body Gyro Jerk signals in X.1 direction
+##tBodyGyroJerk.arCoeff...X.2 --> Autorregresion coefficients of Body Gyro Jerk signals in X.2 direction
+##tBodyGyroJerk.arCoeff...X.3 --> Autorregresion coefficients of Body Gyro Jerk signals in X.3 direction
+##tBodyGyroJerk.arCoeff...X.4 --> Autorregresion coefficients of Body Gyro Jerk signals in X.4 direction
+##tBodyGyroJerk.arCoeff...Y.1 --> Autorregresion coefficients of Body Gyro Jerk signals in Y.1 direction
+##tBodyGyroJerk.arCoeff...Y.2 --> Autorregresion coefficients of Body Gyro Jerk signals in Y.2 direction
+##tBodyGyroJerk.arCoeff...Y.3 --> Autorregresion coefficients of Body Gyro Jerk signals in Y.3 direction
+##tBodyGyroJerk.arCoeff...Y.4 --> Autorregresion coefficients of Body Gyro Jerk signals in Y.4 direction
+##tBodyGyroJerk.arCoeff...Z.1 --> Autorregresion coefficients of Body Gyro Jerk signals in Z.1 direction
+##tBodyGyroJerk.arCoeff...Z.2 --> Autorregresion coefficients of Body Gyro Jerk signals in Z.2 direction
+##tBodyGyroJerk.arCoeff...Z.3 --> Autorregresion coefficients of Body Gyro Jerk signals in Z.3 direction
+##tBodyGyroJerk.arCoeff...Z.4 --> Autorregresion coefficients of Body Gyro Jerk signals in Z.4 direction
+##tBodyGyroJerk.correlation...X.Y --> X/Y Correlation coefficient of Body Gyro Jerk signals
+##tBodyGyroJerk.correlation...X.Z --> X/Z Correlation coefficient of Body Gyro Jerk signals
+##tBodyGyroJerk.correlation...Y.Z --> Y/Z Correlation coefficient of Body Gyro Jerk signals
+##tBodyAccMag.mean.. --> Mean of Body Acceleration Magnitude
+##tBodyAccMag.std.. --> Standard Deviation of Body Acceleration Magnitude
+##tBodyAccMag.mad.. --> Median Absolute Deviation of Body Acceleration Magnitude
+##tBodyAccMag.max.. --> Maximum of Body Acceleration Magnitude
+##tBodyAccMag.min.. --> Minimum of Body Acceleration Magnitude
+##tBodyAccMag.sma.. --> Signal magnitude area of Body Acceleration Magnitude
+##tBodyAccMag.energy.. --> Energy measure of Body Acceleration Magnitude
+##tBodyAccMag.iqr.. --> Interquartile range of Body Acceleration Magnitude
+##tBodyAccMag.entropy.. --> Signal entropy of Body Acceleration Magnitude
+##tBodyAccMag.arCoeff..1 --> ArCoeff.1 of Body Acceleration Magnitude
+##tBodyAccMag.arCoeff..2 --> ArCoeff.2 of Body Acceleration Magnitude
+##tBodyAccMag.arCoeff..3 --> ArCoeff.3 of Body Acceleration Magnitude
+##tBodyAccMag.arCoeff..4 --> ArCoeff.4 of Body Acceleration Magnitude
+##tGravityAccMag.mean.. --> Mean of Gravity Acceleration Magnitude
+##tGravityAccMag.std.. --> Standard Deviation of Gravity Acceleration Magnitude
+##tGravityAccMag.mad.. --> Median Absolute Deviation of Gravity Acceleration Magnitude
+##tGravityAccMag.max.. --> Maximum of Gravity Acceleration Magnitude
+##tGravityAccMag.min.. --> Minimum of Gravity Acceleration Magnitude
+##tGravityAccMag.sma.. --> Signal magnitude area of Gravity Acceleration Magnitude
+##tGravityAccMag.energy.. --> Energy measure of Gravity Acceleration Magnitude
+##tGravityAccMag.iqr.. --> Interquartile range of Gravity Acceleration Magnitude
+##tGravityAccMag.entropy.. --> Signal entropy of Gravity Acceleration Magnitude
+##tGravityAccMag.arCoeff..1 --> ArCoeff.1 of Gravity Acceleration Magnitude
+##tGravityAccMag.arCoeff..2 --> ArCoeff.2 of Gravity Acceleration Magnitude
+##tGravityAccMag.arCoeff..3 --> ArCoeff.3 of Gravity Acceleration Magnitude
+##tGravityAccMag.arCoeff..4 --> ArCoeff.4 of Gravity Acceleration Magnitude
+##tBodyAccJerkMag.mean.. --> Mean of Body Acceleration Jerk Magnitude
+##tBodyAccJerkMag.std.. --> Standard Deviation of Body Acceleration Jerk Magnitude
+##tBodyAccJerkMag.mad.. --> Median Absolute Deviation of Body Acceleration Jerk Magnitude
+##tBodyAccJerkMag.max.. --> Maximum of Body Acceleration Jerk Magnitude
+##tBodyAccJerkMag.min.. --> Minimum of Body Acceleration Jerk Magnitude
+##tBodyAccJerkMag.sma.. --> Signal magnitude area of Body Acceleration Jerk Magnitude
+##tBodyAccJerkMag.energy.. --> Energy measure of Body Acceleration Jerk Magnitude
+##tBodyAccJerkMag.iqr.. --> Interquartile range of Body Acceleration Jerk Magnitude
+##tBodyAccJerkMag.entropy.. --> Signal entropy of Body Acceleration Jerk Magnitude
+##tBodyAccJerkMag.arCoeff..1 --> ArCoeff.1 of Body Acceleration Jerk Magnitude
+##tBodyAccJerkMag.arCoeff..2 --> ArCoeff.2 of Body Acceleration Jerk Magnitude
+##tBodyAccJerkMag.arCoeff..3 --> ArCoeff.3 of Body Acceleration Jerk Magnitude
+##tBodyAccJerkMag.arCoeff..4 --> ArCoeff.4 of Body Acceleration Jerk Magnitude
+##tBodyGyroMag.mean.. --> Mean of Body Gyro Magnitude
+##tBodyGyroMag.std.. --> Standard Deviation of Body Gyro Magnitude
+##tBodyGyroMag.mad.. --> Median Absolute Deviation of Body Gyro Magnitude
+##tBodyGyroMag.max.. --> Maximum of Body Gyro Magnitude
+##tBodyGyroMag.min.. --> Minimum of Body Gyro Magnitude
+##tBodyGyroMag.sma.. --> Signal magnitude area of Body Gyro Magnitude
+##tBodyGyroMag.energy.. --> Energy measure of Body Gyro Magnitude
+##tBodyGyroMag.iqr.. --> Interquartile range of Body Gyro Magnitude
+##tBodyGyroMag.entropy.. --> Signal entropy of Body Gyro Magnitude
+##tBodyGyroMag.arCoeff..1 --> ArCoeff.1 of Body Gyro Magnitude
+##tBodyGyroMag.arCoeff..2 --> ArCoeff.2 of Body Gyro Magnitude
+##tBodyGyroMag.arCoeff..3 --> ArCoeff.3 of Body Gyro Magnitude
+##tBodyGyroMag.arCoeff..4 --> ArCoeff.4 of Body Gyro Magnitude
+##tBodyGyroJerkMag.mean.. --> Mean of Body Gyro Jerk Magnitude
+##tBodyGyroJerkMag.std.. --> Standard Deviation of Body Gyro Jerk Magnitude
+##tBodyGyroJerkMag.mad.. --> Median Absolute Deviation of Body Gyro Jerk Magnitude
+##tBodyGyroJerkMag.max.. --> Maximum of Body Gyro Jerk Magnitude
+##tBodyGyroJerkMag.min.. --> Minimum of Body Gyro Jerk Magnitude
+##tBodyGyroJerkMag.sma.. --> Signal magnitude area of Body Gyro Jerk Magnitude
+##tBodyGyroJerkMag.energy.. --> Energy measure of Body Gyro Jerk Magnitude
+##tBodyGyroJerkMag.iqr.. --> Interquartile range of Body Gyro Jerk Magnitude
+##tBodyGyroJerkMag.entropy.. --> Signal entropy of Body Gyro Jerk Magnitude
+##tBodyGyroJerkMag.arCoeff..1 --> ArCoeff.1 of Body Gyro Jerk Magnitude
+##tBodyGyroJerkMag.arCoeff..2 --> ArCoeff.2 of Body Gyro Jerk Magnitude
+##tBodyGyroJerkMag.arCoeff..3 --> ArCoeff.3 of Body Gyro Jerk Magnitude
+##tBodyGyroJerkMag.arCoeff..4 --> ArCoeff.4 of Body Gyro Jerk Magnitude
+##fBodyAcc.mean...X --> Mean of Fast Fourier Transform (FFT) for Body Acceleration in X direction
+##fBodyAcc.mean...Y --> Mean of Fast Fourier Transform (FFT) for Body Acceleration in Y direction
+##fBodyAcc.mean...Z --> Mean of Fast Fourier Transform (FFT) for Body Acceleration in Z direction
+##fBodyAcc.std...X --> Standard Deviation of Fast Fourier Transform (FFT) for Body Acceleration in X direction
+##fBodyAcc.std...Y --> Standard Deviation of Fast Fourier Transform (FFT) for Body Acceleration in Y direction
+##fBodyAcc.std...Z --> Standard Deviation of Fast Fourier Transform (FFT) for Body Acceleration in Z direction
+##fBodyAcc.mad...X --> Median Absolute Deviation of Fast Fourier Transform (FFT) for Body Acceleration in X direction
+##fBodyAcc.mad...Y --> Median Absolute Deviation of Fast Fourier Transform (FFT) for Body Acceleration in Y direction
+##fBodyAcc.mad...Z --> Median Absolute Deviation of Fast Fourier Transform (FFT) for Body Acceleration in Z direction
+##fBodyAcc.max...X --> Maximum of Fast Fourier Transform (FFT) for Body Acceleration in X direction
+##fBodyAcc.max...Y --> Maximum of Fast Fourier Transform (FFT) for Body Acceleration in Y direction
+##fBodyAcc.max...Z --> Maximum of Fast Fourier Transform (FFT) for Body Acceleration in Z direction
+##fBodyAcc.min...X --> Minimum of Fast Fourier Transform (FFT) for Body Acceleration in X direction
+##fBodyAcc.min...Y --> Minimum of Fast Fourier Transform (FFT) for Body Acceleration in Y direction
+##fBodyAcc.min...Z --> Minimum of Fast Fourier Transform (FFT) for Body Acceleration in Z direction
+##fBodyAcc.sma.. --> Signal magnitude area of Fast Fourier Transform (FFT) for Body Acceleration
+##fBodyAcc.energy...X --> Energy measure of Fast Fourier Transform (FFT) for Body Acceleration in X direction
+##fBodyAcc.energy...Y --> Energy measure of Fast Fourier Transform (FFT) for Body Acceleration in Y direction
+##fBodyAcc.energy...Z --> Energy measure of Fast Fourier Transform (FFT) for Body Acceleration in Z direction
+##fBodyAcc.iqr...X --> Interquartile range of Fast Fourier Transform (FFT) for Body Acceleration in X direction
+##fBodyAcc.iqr...Y --> Interquartile range of Fast Fourier Transform (FFT) for Body Acceleration in Y direction
+##fBodyAcc.iqr...Z --> Interquartile range of Fast Fourier Transform (FFT) for Body Acceleration in Z direction
+##fBodyAcc.entropy...X --> Signal entropy of Fast Fourier Transform (FFT) for Body Acceleration in X direction
+##fBodyAcc.entropy...Y --> Signal entropy of Fast Fourier Transform (FFT) for Body Acceleration in Y direction
+##fBodyAcc.entropy...Z --> Signal entropy of Fast Fourier Transform (FFT) for Body Acceleration in Z direction
+##fBodyAcc.maxInds.X --> Index of the frequency component with largest magnitude of Fast Fourier Transform (FFT) for Body Acceleration in X direction
+##fBodyAcc.maxInds.Y --> Index of the frequency component with largest magnitude of Fast Fourier Transform (FFT) for Body Acceleration in Y direction
+##fBodyAcc.maxInds.Z --> Index of the frequency component with largest magnitude of Fast Fourier Transform (FFT) for Body Acceleration in Z direction
+##fBodyAcc.meanFreq...X --> Mean Frequency of Fast Fourier Transform (FFT) for Body Acceleration in X direction
+##fBodyAcc.meanFreq...Y --> Mean Frequency of Fast Fourier Transform (FFT) for Body Acceleration in Y direction
+##fBodyAcc.meanFreq...Z --> Mean Frequency of Fast Fourier Transform (FFT) for Body Acceleration in Z direction
+##fBodyAcc.skewness...X --> Skewness of Fast Fourier Transform (FFT) for Body Acceleration in X direction
+##fBodyAcc.kurtosis...X --> Kurtosis of Fast Fourier Transform (FFT) for Body Acceleration in X direction
+##fBodyAcc.skewness...Y --> Skewness of Fast Fourier Transform (FFT) for Body Acceleration in Y direction
+##fBodyAcc.kurtosis...Y --> Kurtosis of Fast Fourier Transform (FFT) for Body Acceleration in Y direction
+##fBodyAcc.skewness...Z --> Skewness of Fast Fourier Transform (FFT) for Body Acceleration in Z direction
+##fBodyAcc.kurtosis...Z --> Kurtosis of Fast Fourier Transform (FFT) for Body Acceleration in Z direction
+##fBodyAcc.bandsEnergy...1.8 --> Energy measure of a frequency interval within the 1.8 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...9.16 --> Energy measure of a frequency interval within the 9.16 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...17.24 --> Energy measure of a frequency interval within the 17.24 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...25.32 --> Energy measure of a frequency interval within the 25.32 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...33.40 --> Energy measure of a frequency interval within the 33.40 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...41.48 --> Energy measure of a frequency interval within the 41.48 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...49.56 --> Energy measure of a frequency interval within the 49.56 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...57.64 --> Energy measure of a frequency interval within the 57.64 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...1.16 --> Energy measure of a frequency interval within the 1.16 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...17.32 --> Energy measure of a frequency interval within the 17.32 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...33.48 --> Energy measure of a frequency interval within the 33.48 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...49.64 --> Energy measure of a frequency interval within the 49.64 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...1.24 --> Energy measure of a frequency interval within the 1.24 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...25.48 --> Energy measure of a frequency interval within the 25.48 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...1.8.1 --> Energy measure of a frequency interval within the 1..8.1 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...9.16.1 --> Energy measure of a frequency interval within the 9.16.1 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...17.24.1 --> Energy measure of a frequency interval within the 17.24.1 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...25.32.1 --> Energy measure of a frequency interval within the 25.32.1 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...33.40.1 --> Energy measure of a frequency interval within the 33.40.1 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...41.48.1 --> Energy measure of a frequency interval within the 41.48.1 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...49.56.1 --> Energy measure of a frequency interval within the 49.56.1 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...57.64.1 --> Energy measure of a frequency interval within the 57.64.1 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...1.16.1 --> Energy measure of a frequency interval within the 1.16.1 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...17.32.1 --> Energy measure of a frequency interval within the 17.32.1 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...33.48.1 --> Energy measure of a frequency interval within the 33.48.1 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...49.64.1 --> Energy measure of a frequency interval within the 49.64.1 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...1.24.1 --> Energy measure of a frequency interval within the 1.24.1 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...25.48.1 --> Energy measure of a frequency interval within the 25.48.1 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...1.8.2 --> Energy measure of a frequency interval within the 1.8.2 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...9.16.2 --> Energy measure of a frequency interval within the 9.16.2 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...17.24.2 --> Energy measure of a frequency interval within the 17.24.2 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...25.32.2 --> Energy measure of a frequency interval within the 25.32.2 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...33.40.2 --> Energy measure of a frequency interval within the 33.40.2 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...41.48.2 --> Energy measure of a frequency interval within the 41.48.2 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...49.56.2 --> Energy measure of a frequency interval within the 49.56.2 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...57.64.2 --> Energy measure of a frequency interval within the 57.64.2 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...1.16.2 --> Energy measure of a frequency interval within the 1.16.2 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...17.32.2 --> Energy measure of a frequency interval within the 17.32.2 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...33.48.2 --> Energy measure of a frequency interval within the 33.48.2 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...49.64.2 --> Energy measure of a frequency interval within the 49.64.2 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...1.24.2 --> Energy measure of a frequency interval within the 1.24.2 bins for Body Acceleration
+##fBodyAcc.bandsEnergy...25.48.2 --> Energy measure of a frequency interval within the 25.48.2 bins for Body Acceleration
+##fBodyAccJerk.mean...X --> Mean of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in X direction
+##fBodyAccJerk.mean...Y --> Mean of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Y direction
+##fBodyAccJerk.mean...Z --> Mean of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Z direction
+##fBodyAccJerk.std...X --> Standard Deviation of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in X direction
+##fBodyAccJerk.std...Y --> Standard Deviation of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Y direction
+##fBodyAccJerk.std...Z --> Standard Deviation of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Z direction
+##fBodyAccJerk.mad...X --> Median Absolute Deviation of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in X direction
+##fBodyAccJerk.mad...Y --> Median Absolute Deviation of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Y direction
+##fBodyAccJerk.mad...Z --> Median Absolute Deviation of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Z direction
+##fBodyAccJerk.max...X --> Maximum of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in X direction
+##fBodyAccJerk.max...Y --> Maximum of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Y direction
+##fBodyAccJerk.max...Z --> Maximum of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Z direction
+##fBodyAccJerk.min...X --> Minimum of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in X direction
+##fBodyAccJerk.min...Y --> Minimum of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Y direction
+##fBodyAccJerk.min...Z --> Minimum of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Z direction
+##fBodyAccJerk.sma.. --> Signal magnitude area of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals
+##fBodyAccJerk.energy...X --> Energy measure of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in X direction
+##fBodyAccJerk.energy...Y --> Energy measure of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Y direction
+##fBodyAccJerk.energy...Z --> Energy measure of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Z direction
+##fBodyAccJerk.iqr...X --> Interquartile range of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in X direction
+##fBodyAccJerk.iqr...Y --> Interquartile range of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Y direction
+##fBodyAccJerk.iqr...Z --> Interquartile range of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Z direction
+##fBodyAccJerk.entropy...X --> Signal entropy of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in X direction
+##fBodyAccJerk.entropy...Y --> Signal entropy of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Y direction
+##fBodyAccJerk.entropy...Z --> Signal entropy of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Z direction
+##fBodyAccJerk.maxInds.X --> Index of the frequency component with largest magnitude of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in X direction
+##fBodyAccJerk.maxInds.Y --> Index of the frequency component with largest magnitude of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Y direction
+##fBodyAccJerk.maxInds.Z --> Index of the frequency component with largest magnitude of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Z direction
+##fBodyAccJerk.meanFreq...X --> Mean Frequency of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in X direction
+##fBodyAccJerk.meanFreq...Y --> Mean Frequency of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Y direction
+##fBodyAccJerk.meanFreq...Z --> Mean Frequency of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Z direction
+##fBodyAccJerk.skewness...X --> Skewness of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in X direction
+##fBodyAccJerk.kurtosis...X --> Kurtosis of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in X direction
+##fBodyAccJerk.skewness...Y --> Skewness of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Y direction
+##fBodyAccJerk.kurtosis...Y --> Kurtosis of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Y direction
+##fBodyAccJerk.skewness...Z --> Skewness of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Z direction
+##fBodyAccJerk.kurtosis...Z --> Kurtosis of Fast Fourier Transform (FFT) for Body Acceleration Jerk signals in Z direction
+##fBodyAccJerk.bandsEnergy...1.8 --> Energy measure of a frequency interval within the 1.8 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...9.16 --> Energy measure of a frequency interval within the 9.16 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...17.24 --> Energy measure of a frequency interval within the 17.24 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...25.32 --> Energy measure of a frequency interval within the 25.32 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...33.40 --> Energy measure of a frequency interval within the 33.40 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...41.48 --> Energy measure of a frequency interval within the 41.48 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...49.56 --> Energy measure of a frequency interval within the 49.56 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...57.64 --> Energy measure of a frequency interval within the 57.64 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...1.16 --> Energy measure of a frequency interval within the 1.16 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...17.32 --> Energy measure of a frequency interval within the 17.32 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...33.48 --> Energy measure of a frequency interval within the 33.48 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...49.64 --> Energy measure of a frequency interval within the 49.64 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...1.24 --> Energy measure of a frequency interval within the 1.24 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...25.48 --> Energy measure of a frequency interval within the 25.48 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...1.8.1 --> Energy measure of a frequency interval within the 1..8.1 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...9.16.1 --> Energy measure of a frequency interval within the 9.16.1 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...17.24.1 --> Energy measure of a frequency interval within the 17.24.1 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...25.32.1 --> Energy measure of a frequency interval within the 25.32.1 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...33.40.1 --> Energy measure of a frequency interval within the 33.40.1 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...41.48.1 --> Energy measure of a frequency interval within the 41.48.1 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...49.56.1 --> Energy measure of a frequency interval within the 49.56.1 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...57.64.1 --> Energy measure of a frequency interval within the 57.64.1 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...1.16.1 --> Energy measure of a frequency interval within the 1.16.1 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...17.32.1 --> Energy measure of a frequency interval within the 17.32.1 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...33.48.1 --> Energy measure of a frequency interval within the 33.48.1 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...49.64.1 --> Energy measure of a frequency interval within the 49.64.1 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...1.24.1 --> Energy measure of a frequency interval within the 1.24.1 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...25.48.1 --> Energy measure of a frequency interval within the 25.48.1 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...1.8.2 --> Energy measure of a frequency interval within the 1.8.2 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...9.16.2 --> Energy measure of a frequency interval within the 9.16.2 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...17.24.2 --> Energy measure of a frequency interval within the 17.24.2 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...25.32.2 --> Energy measure of a frequency interval within the 25.32.2 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...33.40.2 --> Energy measure of a frequency interval within the 33.40.2 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...41.48.2 --> Energy measure of a frequency interval within the 41.48.2 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...49.56.2 --> Energy measure of a frequency interval within the 49.56.2 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...57.64.2 --> Energy measure of a frequency interval within the 57.64.2 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...1.16.2 --> Energy measure of a frequency interval within the 1.16.2 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...17.32.2 --> Energy measure of a frequency interval within the 17.32.2 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...33.48.2 --> Energy measure of a frequency interval within the 33.48.2 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...49.64.2 --> Energy measure of a frequency interval within the 49.64.2 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...1.24.2 --> Energy measure of a frequency interval within the 1.24.2 bins for Body Acceleration Jerk signals
+##fBodyAccJerk.bandsEnergy...25.48.2 --> Energy measure of a frequency interval within the 25.48.2 bins for Body Acceleration Jerk signals
+##fBodyGyro.mean...X --> Mean of Fast Fourier Transform (FFT) for Body Gyro in X direction
+##fBodyGyro.mean...Y --> Mean of Fast Fourier Transform (FFT) for Body Gyro in Y direction
+##fBodyGyro.mean...Z --> Mean of Fast Fourier Transform (FFT) for Body Gyro in Z direction
+##fBodyGyro.std...X --> Standard Deviation of Fast Fourier Transform (FFT) for Body Gyro in X direction
+##fBodyGyro.std...Y --> Standard Deviation of Fast Fourier Transform (FFT) for Body Gyro in Y direction
+##fBodyGyro.std...Z --> Standard Deviation of Fast Fourier Transform (FFT) for Body Gyro in Z direction
+##fBodyGyro.mad...X --> Median Absolute Deviation of Fast Fourier Transform (FFT) for Body Gyro in X direction
+##fBodyGyro.mad...Y --> Median Absolute Deviation of Fast Fourier Transform (FFT) for Body Gyro in Y direction
+##fBodyGyro.mad...Z --> Median Absolute Deviation of Fast Fourier Transform (FFT) for Body Gyro in Z direction
+##fBodyGyro.max...X --> Maximum of Fast Fourier Transform (FFT) for Body Gyro in X direction
+##fBodyGyro.max...Y --> Maximum of Fast Fourier Transform (FFT) for Body Gyro in Y direction
+##fBodyGyro.max...Z --> Maximum of Fast Fourier Transform (FFT) for Body Gyro in Z direction
+##fBodyGyro.min...X --> Minimum of Fast Fourier Transform (FFT) for Body Gyro in X direction
+##fBodyGyro.min...Y --> Minimum of Fast Fourier Transform (FFT) for Body Gyro in Y direction
+##fBodyGyro.min...Z --> Minimum of Fast Fourier Transform (FFT) for Body Gyro in Z direction
+##fBodyGyro.sma.. --> Signal magnitude area of Fast Fourier Transform (FFT) for Body Gyro
+##fBodyGyro.energy...X --> Energy measure of Fast Fourier Transform (FFT) for Body Gyro in X direction
+##fBodyGyro.energy...Y --> Energy measure of Fast Fourier Transform (FFT) for Body Gyro in Y direction
+##fBodyGyro.energy...Z --> Energy measure of Fast Fourier Transform (FFT) for Body Gyro in Z direction
+##fBodyGyro.iqr...X --> Interquartile range of Fast Fourier Transform (FFT) for Body Gyro in X direction
+##fBodyGyro.iqr...Y --> Interquartile range of Fast Fourier Transform (FFT) for Body Gyro in Y direction
+##fBodyGyro.iqr...Z --> Interquartile range of Fast Fourier Transform (FFT) for Body Gyro in Z direction
+##fBodyGyro.entropy...X --> Signal entropy of Fast Fourier Transform (FFT) for Body Gyro in X direction
+##fBodyGyro.entropy...Y --> Signal entropy of Fast Fourier Transform (FFT) for Body Gyro in Y direction
+##fBodyGyro.entropy...Z --> Signal entropy of Fast Fourier Transform (FFT) for Body Gyro in Z direction
+##fBodyGyro.maxInds.X --> Index of the frequency component with largest magnitude of Fast Fourier Transform (FFT) for Body Gyro in X direction
+##fBodyGyro.maxInds.Y --> Index of the frequency component with largest magnitude of Fast Fourier Transform (FFT) for Body Gyro in Y direction
+##fBodyGyro.maxInds.Z --> Index of the frequency component with largest magnitude of Fast Fourier Transform (FFT) for Body Gyro in Z direction
+##fBodyGyro.meanFreq...X --> Mean Frequency of Fast Fourier Transform (FFT) for Body Gyro in X direction
+##fBodyGyro.meanFreq...Y --> Mean Frequency of Fast Fourier Transform (FFT) for Body Gyro in Y direction
+##fBodyGyro.meanFreq...Z --> Mean Frequency of Fast Fourier Transform (FFT) for Body Gyro in Z direction
+##fBodyGyro.skewness...X --> Skewness of Fast Fourier Transform (FFT) for Body Gyro in X direction
+##fBodyGyro.kurtosis...X --> Kurtosis of Fast Fourier Transform (FFT) for Body Gyro in X direction
+##fBodyGyro.skewness...Y --> Skewness of Fast Fourier Transform (FFT) for Body Gyro in Y direction
+##fBodyGyro.kurtosis...Y --> Kurtosis of Fast Fourier Transform (FFT) for Body Gyro in Y direction
+##fBodyGyro.skewness...Z --> Skewness of Fast Fourier Transform (FFT) for Body Gyro in Z direction
+##fBodyGyro.kurtosis...Z --> Kurtosis of Fast Fourier Transform (FFT) for Body Gyro in Z direction
+##fBodyGyro.bandsEnergy...1.8 --> Energy measure of a frequency interval within the 1.8 bins for Body Gyro
+##fBodyGyro.bandsEnergy...9.16 --> Energy measure of a frequency interval within the 9.16 bins for Body Gyro
+##fBodyGyro.bandsEnergy...17.24 --> Energy measure of a frequency interval within the 17.24 bins for Body Gyro
+##fBodyGyro.bandsEnergy...25.32 --> Energy measure of a frequency interval within the 25.32 bins for Body Gyro
+##fBodyGyro.bandsEnergy...33.40 --> Energy measure of a frequency interval within the 33.40 bins for Body Gyro
+##fBodyGyro.bandsEnergy...41.48 --> Energy measure of a frequency interval within the 41.48 bins for Body Gyro
+##fBodyGyro.bandsEnergy...49.56 --> Energy measure of a frequency interval within the 49.56 bins for Body Gyro
+##fBodyGyro.bandsEnergy...57.64 --> Energy measure of a frequency interval within the 57.64 bins for Body Gyro
+##fBodyGyro.bandsEnergy...1.16 --> Energy measure of a frequency interval within the 1.16 bins for Body Gyro
+##fBodyGyro.bandsEnergy...17.32 --> Energy measure of a frequency interval within the 17.32 bins for Body Gyro
+##fBodyGyro.bandsEnergy...33.48 --> Energy measure of a frequency interval within the 33.48 bins for Body Gyro
+##fBodyGyro.bandsEnergy...49.64 --> Energy measure of a frequency interval within the 49.64 bins for Body Gyro
+##fBodyGyro.bandsEnergy...1.24 --> Energy measure of a frequency interval within the 1.24 bins for Body Gyro
+##fBodyGyro.bandsEnergy...25.48 --> Energy measure of a frequency interval within the 25.48 bins for Body Gyro
+##fBodyGyro.bandsEnergy...1.8.1 --> Energy measure of a frequency interval within the 1..8.1 bins for Body Gyro
+##fBodyGyro.bandsEnergy...9.16.1 --> Energy measure of a frequency interval within the 9.16.1 bins for Body Gyro
+##fBodyGyro.bandsEnergy...17.24.1 --> Energy measure of a frequency interval within the 17.24.1 bins for Body Gyro
+##fBodyGyro.bandsEnergy...25.32.1 --> Energy measure of a frequency interval within the 25.32.1 bins for Body Gyro
+##fBodyGyro.bandsEnergy...33.40.1 --> Energy measure of a frequency interval within the 33.40.1 bins for Body Gyro
+##fBodyGyro.bandsEnergy...41.48.1 --> Energy measure of a frequency interval within the 41.48.1 bins for Body Gyro
+##fBodyGyro.bandsEnergy...49.56.1 --> Energy measure of a frequency interval within the 49.56.1 bins for Body Gyro
+##fBodyGyro.bandsEnergy...57.64.1 --> Energy measure of a frequency interval within the 57.64.1 bins for Body Gyro
+##fBodyGyro.bandsEnergy...1.16.1 --> Energy measure of a frequency interval within the 1.16.1 bins for Body Gyro
+##fBodyGyro.bandsEnergy...17.32.1 --> Energy measure of a frequency interval within the 17.32.1 bins for Body Gyro
+##fBodyGyro.bandsEnergy...33.48.1 --> Energy measure of a frequency interval within the 33.48.1 bins for Body Gyro
+##fBodyGyro.bandsEnergy...49.64.1 --> Energy measure of a frequency interval within the 49.64.1 bins for Body Gyro
+##fBodyGyro.bandsEnergy...1.24.1 --> Energy measure of a frequency interval within the 1.24.1 bins for Body Gyro
+##fBodyGyro.bandsEnergy...25.48.1 --> Energy measure of a frequency interval within the 25.48.1 bins for Body Gyro
+##fBodyGyro.bandsEnergy...1.8.2 --> Energy measure of a frequency interval within the 1.8.2 bins for Body Gyro
+##fBodyGyro.bandsEnergy...9.16.2 --> Energy measure of a frequency interval within the 9.16.2 bins for Body Gyro
+##fBodyGyro.bandsEnergy...17.24.2 --> Energy measure of a frequency interval within the 17.24.2 bins for Body Gyro
+##fBodyGyro.bandsEnergy...25.32.2 --> Energy measure of a frequency interval within the 25.32.2 bins for Body Gyro
+##fBodyGyro.bandsEnergy...33.40.2 --> Energy measure of a frequency interval within the 33.40.2 bins for Body Gyro
+##fBodyGyro.bandsEnergy...41.48.2 --> Energy measure of a frequency interval within the 41.48.2 bins for Body Gyro
+##fBodyGyro.bandsEnergy...49.56.2 --> Energy measure of a frequency interval within the 49.56.2 bins for Body Gyro
+##fBodyGyro.bandsEnergy...57.64.2 --> Energy measure of a frequency interval within the 57.64.2 bins for Body Gyro
+##fBodyGyro.bandsEnergy...1.16.2 --> Energy measure of a frequency interval within the 1.16.2 bins for Body Gyro
+##fBodyGyro.bandsEnergy...17.32.2 --> Energy measure of a frequency interval within the 17.32.2 bins for Body Gyro
+##fBodyGyro.bandsEnergy...33.48.2 --> Energy measure of a frequency interval within the 33.48.2 bins for Body Gyro
+##fBodyGyro.bandsEnergy...49.64.2 --> Energy measure of a frequency interval within the 49.64.2 bins for Body Gyro
+##fBodyGyro.bandsEnergy...1.24.2 --> Energy measure of a frequency interval within the 1.24.2 bins for Body Gyro
+##fBodyGyro.bandsEnergy...25.48.2 --> Energy measure of a frequency interval within the 25.48.2 bins for Body Gyro
+##fBodyAccMag.mean.. --> Mean of Fast Fourier Transform (FFT) for Body Acceleration Magnitude
+##fBodyAccMag.std.. --> Standard Deviation of Fast Fourier Transform (FFT) for Body Acceleration Magnitude
+##fBodyAccMag.mad.. --> Median Absolute Deviation of Fast Fourier Transform (FFT) for Body Acceleration Magnitude
+##fBodyAccMag.max.. --> Maximum of Fast Fourier Transform (FFT) for Body Acceleration Magnitude
+##fBodyAccMag.min.. --> Minimum of Fast Fourier Transform (FFT) for Body Acceleration Magnitude
+##fBodyAccMag.sma.. --> Signal magnitude area of Fast Fourier Transform (FFT) for Body Acceleration Magnitude
+##fBodyAccMag.energy.. --> Energy measure of Fast Fourier Transform (FFT) for Body Acceleration Magnitude
+##fBodyAccMag.iqr.. --> Interquartile range of Fast Fourier Transform (FFT) for Body Acceleration Magnitude
+##fBodyAccMag.entropy.. --> Signal entropy of Fast Fourier Transform (FFT) for Body Acceleration Magnitude
+##fBodyAccMag.maxInds --> Index of the frequency component with largest magnitude of Fast Fourier Transform (FFT) for Body Acceleration Magnitude
+##fBodyAccMag.meanFreq.. --> Mean Frequency of Fast Fourier Transform (FFT) for Body Acceleration Magnitude
+##fBodyAccMag.skewness.. --> Skewness of Fast Fourier Transform (FFT) for Body Acceleration Magnitude
+##fBodyAccMag.kurtosis.. --> Kurtosis of Fast Fourier Transform (FFT) for Body Acceleration Magnitude
+##fBodyBodyAccJerkMag.mean.. --> Mean of Fast Fourier Transform (FFT) for Body Acceleration Jerk Magnitude
+##fBodyBodyAccJerkMag.std.. --> Standard Deviation of Fast Fourier Transform (FFT) for Body Acceleration Jerk Magnitude
+##fBodyBodyAccJerkMag.mad.. --> Median Absolute Deviation of Fast Fourier Transform (FFT) for Body Acceleration Jerk Magnitude
+##fBodyBodyAccJerkMag.max.. --> Maximum of Fast Fourier Transform (FFT) for Body Acceleration Jerk Magnitude
+##fBodyBodyAccJerkMag.min.. --> Minimum of Fast Fourier Transform (FFT) for Body Acceleration Jerk Magnitude
+##fBodyBodyAccJerkMag.sma.. --> Signal magnitude area of Fast Fourier Transform (FFT) for Body Acceleration Jerk Magnitude
+##fBodyBodyAccJerkMag.energy.. --> Energy measure of Fast Fourier Transform (FFT) for Body Acceleration Jerk Magnitude
+##fBodyBodyAccJerkMag.iqr.. --> Interquartile range of Fast Fourier Transform (FFT) for Body Acceleration Jerk Magnitude
+##fBodyBodyAccJerkMag.entropy.. --> Signal entropy of Fast Fourier Transform (FFT) for Body Acceleration Jerk Magnitude
+##fBodyBodyAccJerkMag.maxInds --> Index of the frequency component with largest magnitude of Fast Fourier Transform (FFT) for Body Acceleration Jerk Magnitude
+##fBodyBodyAccJerkMag.meanFreq.. --> Mean Frequency of Fast Fourier Transform (FFT) for Body Acceleration Jerk Magnitude
+##fBodyBodyAccJerkMag.skewness.. --> Skewness of Fast Fourier Transform (FFT) for Body Acceleration Jerk Magnitude
+##fBodyBodyAccJerkMag.kurtosis.. --> Kurtosis of Fast Fourier Transform (FFT) for Body Acceleration Jerk Magnitude
+##fBodyBodyGyroMag.mean.. --> Mean of Fast Fourier Transform (FFT) for Body Gyro Magnitude
+##fBodyBodyGyroMag.std.. --> Standard Deviation of Fast Fourier Transform (FFT) for Body Gyro Magnitude
+##fBodyBodyGyroMag.mad.. --> Median Absolute Deviation of Fast Fourier Transform (FFT) for Body Gyro Magnitude
+##fBodyBodyGyroMag.max.. --> Maximum of Fast Fourier Transform (FFT) for Body Gyro Magnitude
+##fBodyBodyGyroMag.min.. --> Minimum of Fast Fourier Transform (FFT) for Body Gyro Magnitude
+##fBodyBodyGyroMag.sma.. --> Signal magnitude area of Fast Fourier Transform (FFT) for Body Gyro Magnitude
+##fBodyBodyGyroMag.energy.. --> Energy measure of Fast Fourier Transform (FFT) for Body Gyro Magnitude
+##fBodyBodyGyroMag.iqr.. --> Interquartile range of Fast Fourier Transform (FFT) for Body Gyro Magnitude
+##fBodyBodyGyroMag.entropy.. --> Signal entropy of Fast Fourier Transform (FFT) for Body Gyro Magnitude
+##fBodyBodyGyroMag.maxInds --> Index of the frequency component with largest magnitude of Fast Fourier Transform (FFT) for Body Gyro Magnitude
+##fBodyBodyGyroMag.meanFreq.. --> Mean Frequency of Fast Fourier Transform (FFT) for Body Gyro Magnitude
+##fBodyBodyGyroMag.skewness.. --> Skewness of Fast Fourier Transform (FFT) for Body Gyro Magnitude
+##fBodyBodyGyroMag.kurtosis.. --> Kurtosis of Fast Fourier Transform (FFT) for Body Gyro Magnitude
+##fBodyBodyGyroJerkMag.mean.. --> Mean of Fast Fourier Transform (FFT) for Body Gyro Jerk Magnitude
+##fBodyBodyGyroJerkMag.std.. --> Standard Deviation of Fast Fourier Transform (FFT) for Body Gyro Jerk Magnitude
+##fBodyBodyGyroJerkMag.mad.. --> Median Absolute Deviation of Fast Fourier Transform (FFT) for Body Gyro Jerk Magnitude
+##fBodyBodyGyroJerkMag.max.. --> Maximum of Fast Fourier Transform (FFT) for Body Gyro Jerk Magnitude
+##fBodyBodyGyroJerkMag.min.. --> Minimum of Fast Fourier Transform (FFT) for Body Gyro Jerk Magnitude
+##fBodyBodyGyroJerkMag.sma.. --> Signal magnitude area of Fast Fourier Transform (FFT) for Body Gyro Jerk Magnitude
+##fBodyBodyGyroJerkMag.energy.. --> Energy measure of Fast Fourier Transform (FFT) for Body Gyro Jerk Magnitude
+##fBodyBodyGyroJerkMag.iqr.. --> Interquartile range of Fast Fourier Transform (FFT) for Body Gyro Jerk Magnitude
+##fBodyBodyGyroJerkMag.entropy.. --> Signal entropy of Fast Fourier Transform (FFT) for Body Gyro Jerk Magnitude
+##fBodyBodyGyroJerkMag.maxInds --> Index of the frequency component with largest magnitude of Fast Fourier Transform (FFT) for Body Gyro Jerk Magnitude
+##fBodyBodyGyroJerkMag.meanFreq.. --> Mean Frequency of Fast Fourier Transform (FFT) for Body Gyro Jerk Magnitude
+##fBodyBodyGyroJerkMag.skewness.. --> Skewness of Fast Fourier Transform (FFT) for Body Gyro Jerk Magnitude
+##fBodyBodyGyroJerkMag.kurtosis.. --> Kurtosis of Fast Fourier Transform (FFT) for Body Gyro Jerk Magnitude
+##angle.tBodyAccMean.gravity. --> Angle between Body Mean and Gravity Mean
+##angle.tBodyAccJerkMean..gravityMean. --> Angle between Body Acceleration Jerk Mean and Gravity Mean
+##angle.tBodyGyroMean.gravityMean. --> Angle between Body Gyro Mean and Gravity Mean
+##angle.tBodyGyroJerkMean.gravityMean. --> Angle between Body Gyro Jerk Mean and Gravity Mean
+##angle.X.gravityMean. --> Angle of mean Gravity acceleration in X direction
+##angle.Y.gravityMean. --> Angle of mean Gravity acceleration in Y direction
+##angle.Z.gravityMean. --> Angle of mean Gravity acceleration in Z direction
